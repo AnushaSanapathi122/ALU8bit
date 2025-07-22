@@ -1,6 +1,8 @@
 # ALU8bit
 Operands: 8-bit inputs A and B
+
 Output: 16-bit ALUResult to handle operations like multiplication without overflow
+
 Control Signal: 4-bit ALUControl to select among 16 operations
 
 Supported Operations:
@@ -37,7 +39,9 @@ ALUControl Operation Table:
 
 Simulation using Icarus Verilog + GTKWave through Command prompt:
 iverilog -o sim.out ALU8bit.v ALU8bitTb.v
+
 vvp sim.out
+
 gtkwave ALU8bitTb.vcd
 
 Output Wveform:
