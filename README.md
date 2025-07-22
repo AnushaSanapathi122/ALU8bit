@@ -1,23 +1,52 @@
 # ALU8bit
+Operands: 8-bit inputs A and B
+Output: 16-bit ALUResult to handle operations like multiplication without overflow
+Control Signal: 4-bit ALUControl to select among 16 operations
+
+Supported Operations:
+Addition
+Subtraction
+Bitwise AND, OR, XOR, NOT
+Increment and Decrement
+Left and Right Shift
+Multiplication
+Division (with divide-by-zero handling)
+Equality Check
+NOP (No Operation)
 
 
-| `ALUControl` | Operation      | Expression         | Description                        |
-| ------------ | -------------- | ------------------ | ---------------------------------- |
-| `0000`       | Addition       | `A + B`            | Adds A and B                       |
-| `0001`       | Subtraction    | `A - B`            | Subtracts B from A                 |
-| `0010`       | AND            | `A & B`            | Bitwise AND                        |
-| `0011`       | OR             | `A | B`            | Bitwise OR of A and B              |
-| `0100`       | XOR            | `A ^ B`            | Bitwise XOR                        |
-| `0101`       | NOT A          | `~A`               | Bitwise NOT of A                   |
-| `0110`       | Increment      | `A + 1`            | Adds 1 to A                        |
-| `0111`       | Decrement      | `A - 1`            | Subtracts 1 from A                 |
-| `1000`       | Shift Left     | `A << 1`           | Logical left shift of A by 1       |
-| `1001`       | Shift Right    | `A >> 1`           | Logical right shift of A by 1      |
-| `1010`       | NOT A          | `~A`               | Bitwise NOT of A (duplicate entry) |
-| `1011`       | NOT B          | `~B`               | Bitwise NOT of B                   |
-| `1100`       | Multiplication | `A * B`            | Multiplies A and B                 |
-| `1101`       | Division       | `A / B`            | Divides A by B, handles B = 0      |
-| `1110`       | Equality Check | `(A == B) ? 1 : 0` | Compares A and B for equality      |
-| `1111`       | NOP            | `0`                | No operation (outputs 0)           |
+ALUControl Operation Table:
+| ALUControl | Operation | Description               |
+| ---------- | --------- | ------------------------- |
+| `0000`     | `A + B`   | Addition                  |
+| `0001`     | `A - B`   | Subtraction               |
+| `0010`     | `A & B`   | Bitwise AND               |
+| `0011`     | `A \| B`  | Bitwise OR                |
+| `0100`     | `A ^ B`   | Bitwise XOR               |
+| `0101`     | `~A`      | Bitwise NOT A             |
+| `0110`     | `A + 1`   | Increment                 |
+| `0111`     | `A - 1`   | Decrement                 |
+| `1000`     | `A << 1`  | Logical Left Shift        |
+| `1001`     | `A >> 1`  | Logical Right Shift       |
+| `1010`     | `~A`      | Bitwise NOT A (duplicate) |
+| `1011`     | `~B`      | Bitwise NOT B             |
+| `1100`     | `A * B`   | Multiplication            |
+| `1101`     | `A / B`   | Division (zero-protected) |
+| `1110`     | `A == B`  | Equality Check            |
+| `1111`     | `0`       | NOP (Output is Zero)      |
+
+Simulation using Icarus Verilog + GTKWave through Command prompt:
+iverilog -o sim.out ALU8bit.v ALU8bitTb.v
+vvp sim.out
+gtkwave ALU8bitTb.vcd
+
+Output Wveform:
+<img width="1920" height="1020" alt="Screenshot 2025-07-22 191722" src="https://github.com/user-attachments/assets/b62a24e7-cbff-4654-a757-38209636221b" />
+
+Displaying Output in the command window:
+<img width="1920" height="1020" alt="Screenshot 2025-07-22 191352" src="https://github.com/user-attachments/assets/e2cf2cdb-1755-4bee-869c-50fa4fc9bffc" />
+
+
+
 
 
