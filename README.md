@@ -38,6 +38,7 @@ ALUControl Operation Table:
 | `1111`     | `0`       | NOP (Output is Zero)      |
 
 Simulation using Icarus Verilog + GTKWave through Command prompt:
+
 iverilog -o sim.out ALU8bit.v ALU8bitTb.v
 
 vvp sim.out
