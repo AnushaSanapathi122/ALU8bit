@@ -45,7 +45,7 @@ vvp sim.out
 
 gtkwave ALU8bitTb.vcd
 
-Output Wveform:
+Output Waveform:
 <img width="1920" height="1020" alt="Screenshot 2025-07-22 191722" src="https://github.com/user-attachments/assets/b62a24e7-cbff-4654-a757-38209636221b" />
 
 Displaying Output in the command window:
